@@ -14,7 +14,7 @@
         android:paddingEnd="16dp">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/email_create_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -27,7 +27,7 @@
 
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/password_create_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -35,16 +35,25 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
+            app:layout_constraintTop_toBottomOf="@+id/email_create_user" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/create_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create User and Login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            app:layout_constraintTop_toBottomOf="@+id/password_create_user" />
+
+        <TextView
+            android:id="@+id/loginFailedCreateUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_user" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

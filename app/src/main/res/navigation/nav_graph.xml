@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/BeerFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -26,8 +26,22 @@
             app:destination="@id/FirstFragment" />
     </fragment>
     <fragment
-        android:id="@+id/frontpageFragment"
-        android:name="com.example.obligatoriskopgave.FrontpageFragment"
-        android:label="fragment_frontpage"
-        tools:layout="@layout/fragment_frontpage" />
+        android:id="@+id/BeerFragment"
+        android:name="com.example.obligatoriskopgave.BeerFragment"
+        android:label="beer_fragment"
+        tools:layout="@layout/beer_fragment">
+        <action
+            android:id="@+id/action_frontpageFragment_to_beerDetailsFragment"
+            app:destination="@id/beerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beerDetailsFragment"
+        android:name="com.example.obligatoriskopgave.BeerDetailsFragment"
+        android:label="fragment_beer_details"
+        tools:layout="@layout/fragment_beer_details">
+        <argument
+            android:name="beerId"
+            app:argType="integer" />
+
+    </fragment>
 </navigation>

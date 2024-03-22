@@ -54,7 +54,7 @@ class LoginFragment : Fragment() {
                         println("Login successfull!")
                         findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
                     } else {
-                        binding.loginFailed.tex     t = "Login failed: ${task.exception?.message} "
+                        binding.loginFailed.text = "Login failed: ${task.exception?.message} "
                     }
                 }
         }

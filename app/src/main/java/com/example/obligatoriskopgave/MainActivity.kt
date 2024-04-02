@@ -42,14 +42,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                // Handle settings action
+                true
+            }
+            R.id.action_login -> {
+                // Navigate to the LoginFragment
+                when (navController.currentDestination?.id) {
+                    R.id.BeerFragment -> {
+                        navController.navigate(R.id.action_BeerFragment_to_LoginFragment)
+                    }
+                    R.id.beerDetailsFragment -> {
+                        navController.navigate(R.id.action_beerDetailsFragment_to_login_fragment)
+                    }
+                    // Add more cases for other fragments as needed
+                    else -> {
+                        // Default case, navigate to login from any fragment
+                        navController.navigate(R.id.action_global_login_fragment)
+                    }
+                }
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

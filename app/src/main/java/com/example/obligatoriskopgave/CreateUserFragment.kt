@@ -52,7 +52,7 @@ class CreateUserFragment : Fragment() {
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         println("User created!")
-                        findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+                        findNavController().navigate(R.id.action_CreateUserFragment_to_BeerFragment)
                     } else {
                         binding.loginFailedCreateUser.text = "Create user failed: ${task.exception?.message} "
                     }

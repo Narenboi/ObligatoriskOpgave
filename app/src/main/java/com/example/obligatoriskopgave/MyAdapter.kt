@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.obligatoriskopgave.models.Beer
 
 class MyAdapter<T>(
     private val items: List<T>,
@@ -24,13 +25,15 @@ class MyAdapter<T>(
     }
 
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.textView.text = items[position].toString()
+        val beer = items[position] as Beer // Assuming items contains Beer objects
+        viewHolder.title.text = beer.name // Set the name of the beer as the title
+        viewHolder.textView.text = beer.toString() // Set the existing information for the card
     }
+
 
     class MyViewHolder(itemView: View, private val onItemClicked: (position: Int) -> Unit) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        val title: TextView = itemView.findViewById(R.id.title)
         val textView: TextView = itemView.findViewById(R.id.body)
 
         init {

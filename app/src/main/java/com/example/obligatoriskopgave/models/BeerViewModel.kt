@@ -12,12 +12,14 @@ class BeerViewModel : ViewModel()  {
     val updateMessageLiveData: LiveData<String> = repository.updateMessageLiveData
     val reloadingLiveData: LiveData<Boolean> = repository.reloadingLiveData
 
-    init {
-        reload()
-    }
+
 
     fun reload() {
         repository.getBeers()
+    }
+
+    init {
+        reload()
     }
 
     operator fun get(index: Int): Beer? {

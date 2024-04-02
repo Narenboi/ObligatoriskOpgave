@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193458651579",
+    "project_id": "beerfirebaseauth",
+    "storage_bucket": "beerfirebaseauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193458651579:android:6dc73f7e3984bb4c24c49e",
+        "android_client_info": {
+          "package_name": "com.example.obligatoriskopgave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXHtReLa9B5zOF2-KtDHiaTsB-OYxeD-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

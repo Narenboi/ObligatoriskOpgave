@@ -41,6 +41,7 @@ class LoginFragment : Fragment() {
             if (email.isEmpty()) {
                 binding.email.error = "Please enter email"
                 binding.email.requestFocus()
+
                 return@setOnClickListener
             }
             if (password.isEmpty()) {
@@ -52,14 +53,14 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         println("Login successfull!")
-                        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                        findNavController().navigate(R.id.action_login_fragment_to_BeerFragment)
                     } else {
                         binding.loginFailed.text = "Login failed: ${task.exception?.message} "
                     }
                 }
         }
         binding.createUser.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_LoginFragment_to_CreateUserFragment)
         }
     }
 

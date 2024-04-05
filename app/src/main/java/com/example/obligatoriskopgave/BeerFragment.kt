@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.obligatoriskopgave.databinding.BeerFragmentBinding
 import com.example.obligatoriskopgave.models.Beer
 import com.example.obligatoriskopgave.models.BeerViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 class BeerFragment : Fragment() {
     private var _binding: BeerFragmentBinding? = null
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+
     private val binding get() = _binding!!
     private val beerViewModel: BeerViewModel by activityViewModels()
 
@@ -28,6 +31,12 @@ class BeerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val userEmail = auth.currentUser?.email
+        if (userEmail == null) {
+            findNavController().navigate(R.id.action_BeerFragment_to_LoginFragment)
+            return
+        }
 
         // Observe beersLiveData
         beerViewModel.beersLiveData.observe(viewLifecycleOwner) { beers ->
@@ -43,6 +52,9 @@ class BeerFragment : Fragment() {
             }
         }
 
+        binding.buttonCreateNewBeer.setOnClickListener {
+            findNavController().navigate(R.id.action_BeerFragment_to_AddBeerFragment)
+        }
         // Observe errorMessageLiveData
         beerViewModel.errorMessageLiveData.observe(viewLifecycleOwner) { errorMessage ->
             binding.textviewMessage.text = errorMessage
@@ -64,6 +76,7 @@ class BeerFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
     private fun navigateToBeerDetails(beer: Beer) {
         val action = BeerFragmentDirections.actionBeerFragmentToBeerDetailsFragment(beer)

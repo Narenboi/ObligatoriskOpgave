@@ -1,6 +1,7 @@
 package com.example.obligatoriskopgave
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.obligatoriskopgave.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,22 +47,13 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
         return when (item.itemId) {
-            R.id.action_settings -> {
-                // Handle settings action
-                true
-            }
             R.id.action_login -> {
+                // Perform Firebase logout
+                FirebaseAuth.getInstance().signOut()
+                Log.d("User logged out", FirebaseAuth.getInstance().currentUser.toString())
                 // Navigate to the LoginFragment
                 when (navController.currentDestination?.id) {
                     R.id.BeerFragment -> {
-                        navController.navigate(R.id.action_BeerFragment_to_LoginFragment)
-                    }
-                    R.id.beerDetailsFragment -> {
-                        navController.navigate(R.id.action_beerDetailsFragment_to_login_fragment)
-                    }
-                    // Add more cases for other fragments as needed
-                    else -> {
-                        // Default case, navigate to login from any fragment
                         navController.navigate(R.id.action_global_login_fragment)
                     }
                 }
@@ -69,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
 
 

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/BeerFragment">
+    app:startDestination="@id/login_fragment">
 
     <fragment
         android:id="@+id/login_fragment"
@@ -18,6 +17,7 @@
             android:id="@+id/action_login_fragment_to_BeerFragment"
             app:destination="@id/BeerFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/create_user"
         android:name="com.example.obligatoriskopgave.CreateUserFragment"
@@ -28,6 +28,17 @@
             android:id="@+id/action_CreateUserFragment_to_BeerFragment"
             app:destination="@id/BeerFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/AddBeerFragment"
+        android:name="com.example.obligatoriskopgave.AddBeerFragment"
+        android:label="add_beer_fragment"
+        tools:layout="@layout/add_beer_fragment">
+        <action
+            android:id="@+id/action_AddBeerFragment_to_BeerFragment"
+            app:destination="@id/BeerFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/BeerFragment"
         android:name="com.example.obligatoriskopgave.BeerFragment"
@@ -39,7 +50,16 @@
         <action
             android:id="@+id/action_BeerFragment_to_LoginFragment"
             app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_BeerFragment_to_AddBeerFragment"
+            app:destination="@id/AddBeerFragment" />
+
+        <!-- Move the action here -->
+        <action
+            android:id="@+id/action_global_login_fragment"
+            app:destination="@id/login_fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/beerDetailsFragment"
         android:name="com.example.obligatoriskopgave.BeerDetailsFragment"
@@ -48,12 +68,6 @@
         <argument
             android:name="beer"
             app:argType="com.example.obligatoriskopgave.models.Beer" />
-        <action
-            android:id="@+id/action_beerDetailsFragment_to_login_fragment"
-            app:destination="@id/login_fragment" />
-
     </fragment>
-    <action
-        android:id="@+id/action_global_login_fragment"
-        app:destination="@id/login_fragment" />
+
 </navigation>

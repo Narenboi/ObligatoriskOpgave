@@ -63,4 +63,49 @@
         android:layout_toEndOf="@id/textViewStyle"
         android:layout_alignBaseline="@id/textViewStyle"/>
 
+    <TextView
+        android:id="@+id/textViewVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volume:"
+        android:layout_below="@id/textViewStyle"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewVolumeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/textViewVolume"
+        android:layout_alignBaseline="@id/textViewVolume"/>
+
+    <TextView
+        android:id="@+id/textViewHowMany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How Many:"
+        android:layout_below="@id/textViewVolume"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/textViewHowManyValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/textViewHowMany"
+        android:layout_alignBaseline="@id/textViewHowMany"/>
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:layout_below="@id/textViewHowMany" />
+
+    <Button
+        android:id="@+id/buttonEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:layout_toEndOf="@id/buttonDelete"
+        android:layout_below="@id/textViewHowMany" />
+
 </RelativeLayout>

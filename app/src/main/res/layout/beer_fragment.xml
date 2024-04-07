@@ -13,30 +13,6 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
-    <!--LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"-->
-
-    <!--
-     This fragment show the SAME data in a spinner + recyclerView.
-     This is quite unusual and should NOT be copied.
-    -->
-
-    <!--Spinner
-        android:id="@+id/spinner_books"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2" /-->
-
-    <!--Button
-        android:id="@+id/button_show_details"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Details" /-->
-    <!--/LinearLayout-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,12 +31,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--EditText
-            android:id="@+id/edittext_filter_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="Title" /-->
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchview_filter_title"
             android:layout_width="0dp"

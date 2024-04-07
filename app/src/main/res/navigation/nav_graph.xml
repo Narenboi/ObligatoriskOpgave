@@ -68,6 +68,20 @@
         <argument
             android:name="beer"
             app:argType="com.example.obligatoriskopgave.models.Beer" />
+        <action
+            android:id="@+id/action_beerDetailsFragment_to_EditBeerDetailsFragment"
+            app:destination="@id/EditBeerDetailsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/EditBeerDetailsFragment"
+        android:name="com.example.obligatoriskopgave.EditBeerDetailsFragment"
+        android:label="fragment_edit_beer_details"
+        tools:layout="@layout/fragment_edit_beer_details" >
+        <action
+            android:id="@+id/action_EditBeerDetailsFragment_to_BeerFragment"
+            app:destination="@id/BeerFragment" />
     </fragment>
 
 </navigation>

@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.obligatoriskopgave.models.Beer
 import com.example.obligatoriskopgave.models.BeerViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -63,6 +64,9 @@ class AddBeerFragment : Fragment() {
 
                 val beer = Beer(0, auth.currentUser?.email, brewery, name, style, abv, volume, null, howMany)
                 beerViewModel.addBeer(beer)
+                beerViewModel.reload() //This is being done to manually reload the beers after adding a new one
+                findNavController().navigate(R.id.action_AddBeerFragment_to_BeerFragment)
+
             } catch (e: NumberFormatException) {
                 // Handle conversion errors (e.g., invalid input for numeric fields)
                 // Show a toast or a Snackbar to inform the user about the error

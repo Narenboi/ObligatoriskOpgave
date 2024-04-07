@@ -3,9 +3,8 @@ package com.example.obligatoriskopgave.models
 import BeerRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.obligatoriskopgave.models.Beer
 
-class BeerViewModel : ViewModel()  {
+class BeerViewModel : ViewModel() {
 
     private val repository = BeerRepository()
     val beersLiveData: LiveData<List<Beer>> = repository.beersLiveData
@@ -14,7 +13,6 @@ class BeerViewModel : ViewModel()  {
     val reloadingLiveData: LiveData<Boolean> = repository.reloadingLiveData
     val deleteBeerErrorMessageLiveData: LiveData<String> = repository.deleteBeerErrorMessageLiveData
     val beerLiveData: LiveData<List<Beer>> = repository.beerLiveData
-
 
     // Method to reload beers
     fun reload() {
@@ -26,6 +24,14 @@ class BeerViewModel : ViewModel()  {
         repository.addBeer(beer)
     }
 
+    fun deleteBeer(beerId: Int) {
+        repository.deleteBeer(beerId)
+    }
+
+    fun updateBeer(beerId: Int, beer: Beer){
+        repository.updateBeer(beerId, beer)
+    }
+
     // Initialization
     init {
         reload()
@@ -34,5 +40,27 @@ class BeerViewModel : ViewModel()  {
     // Access operator for getting beer by index
     operator fun get(index: Int): Beer? {
         return beersLiveData.value?.get(index)
+    }
+
+
+    // Function to sort beers alphabetically by name
+    fun sortAlphabetical() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.name }
+        repository.updateBeersLiveData(sortedBeers)
+    }
+
+    // Function to sort beers by volume
+    fun sortByVolume() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.volume }
+        repository.updateBeersLiveData(sortedBeers)
+    }
+
+    // Function to sort beers by how many
+    fun sortByHowMany() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.howMany }
+        repository.updateBeersLiveData(sortedBeers)
     }
 }

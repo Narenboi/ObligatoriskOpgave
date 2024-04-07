@@ -20,8 +20,6 @@ class BeerRepository {
     val deleteBeerErrorMessageLiveData: MutableLiveData<String> = MutableLiveData()
     val beerLiveData: MutableLiveData<List<Beer>> = MutableLiveData()
 
-
-
     init {
         val build: Retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -61,6 +59,7 @@ class BeerRepository {
             Log.d("BeerRepository", "User not logged in")
         }
     }
+
 
     fun addBeer(beer: Beer) {
         val user = FirebaseAuth.getInstance().currentUser
@@ -153,5 +152,10 @@ class BeerRepository {
             errorMessageLiveData.postValue("User not logged in")
             Log.d("BeerRepository", "User not logged in")
         }
+    }
+
+    // Function to update beers live data
+    fun updateBeersLiveData(beers: List<Beer>) {
+        beersLiveData.postValue(beers)
     }
 }

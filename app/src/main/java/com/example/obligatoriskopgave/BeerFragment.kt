@@ -1,12 +1,12 @@
 package com.example.obligatoriskopgave
 
-
 import android.os.Bundle
+import android.view.*
+import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.obligatoriskopgave.databinding.BeerFragmentBinding
@@ -38,6 +38,11 @@ class BeerFragment : Fragment() {
             return
         }
 
+        // Set onClickListener to Sort button
+        binding.buttonSort.setOnClickListener {
+            showSortOptions()
+        }
+
         // Observe beersLiveData
         beerViewModel.beersLiveData.observe(viewLifecycleOwner) { beers ->
             beers?.let {
@@ -60,6 +65,14 @@ class BeerFragment : Fragment() {
             binding.textviewMessage.text = errorMessage
         }
 
+        // Trigger reload when fragment is resumed (back navigation)
+        viewLifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+            override fun onResume(owner: LifecycleOwner) {
+                super.onResume(owner)
+                beerViewModel.reload()
+            }
+        })
+
         // Trigger reload when swiping
         binding.swiperefresh.setOnRefreshListener {
             beerViewModel.reload()
@@ -77,9 +90,31 @@ class BeerFragment : Fragment() {
         _binding = null
     }
 
-
     private fun navigateToBeerDetails(beer: Beer) {
         val action = BeerFragmentDirections.actionBeerFragmentToBeerDetailsFragment(beer)
         findNavController().navigate(action)
+    }
+
+    private fun showSortOptions() {
+        val popupMenu = PopupMenu(requireContext(), binding.buttonSort)
+        popupMenu.menuInflater.inflate(R.menu.sort_options_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menu_item_sort_alphabetical -> {
+                    beerViewModel.sortAlphabetical()
+                    true
+                }
+                R.id.menu_item_sort_volume -> {
+                    beerViewModel.sortByVolume()
+                    true
+                }
+                R.id.menu_item_sort_how_many -> {
+                    beerViewModel.sortByHowMany()
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
     }
 }

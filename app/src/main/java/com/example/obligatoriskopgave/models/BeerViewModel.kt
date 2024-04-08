@@ -63,4 +63,26 @@ class BeerViewModel : ViewModel() {
         val sortedBeers = currentBeers.sortedBy { it.howMany }
         repository.updateBeersLiveData(sortedBeers)
     }
+
+    // Function to filter beers alphabetically by name
+    fun filterAlphabetical() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.name }
+        repository.updateBeersLiveData(sortedBeers)
+    }
+
+    // Function to filter beers by volume
+    fun filterByVolume() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.volume }
+        repository.updateBeersLiveData(sortedBeers)
+    }
+
+    // Function to filter beers by how many
+    fun filterByHowMany() {
+        val currentBeers = beersLiveData.value ?: return
+        val sortedBeers = currentBeers.sortedBy { it.howMany }
+        repository.updateBeersLiveData(sortedBeers)
+    }
+
 }

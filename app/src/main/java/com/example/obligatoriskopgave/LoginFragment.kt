@@ -3,6 +3,8 @@ package com.example.obligatoriskopgave
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
@@ -63,6 +65,8 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_LoginFragment_to_CreateUserFragment)
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

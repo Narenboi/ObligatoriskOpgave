@@ -43,6 +43,11 @@ class BeerFragment : Fragment() {
             showSortOptions()
         }
 
+        // Set onClickListener to Filter button
+        binding.buttonFilter.setOnClickListener {
+            showFilterOptions()
+        }
+
         // Observe beersLiveData
         beerViewModel.beersLiveData.observe(viewLifecycleOwner) { beers ->
             beers?.let {
@@ -110,6 +115,29 @@ class BeerFragment : Fragment() {
                 }
                 R.id.menu_item_sort_how_many -> {
                     beerViewModel.sortByHowMany()
+                    true
+                }
+                else -> false
+            }
+        }
+        popupMenu.show()
+    }
+
+    private fun showFilterOptions() {
+        val popupMenu = PopupMenu(requireContext(), binding.buttonFilter)
+        popupMenu.menuInflater.inflate(R.menu.filter_options_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menu_item_filter_alphabetical -> {
+                    beerViewModel.filterAlphabetical()
+                    true
+                }
+                R.id.menu_item_filter_volume -> {
+                    beerViewModel.filterByVolume()
+                    true
+                }
+                R.id.menu_item_filter_how_many -> {
+                    beerViewModel.filterByHowMany()
                     true
                 }
                 else -> false

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BeerFragment">
+    tools:context=".BeerFragment"
+    android:id="@+id/BeerFragment">
 
     <TextView
         android:id="@+id/textview_message"

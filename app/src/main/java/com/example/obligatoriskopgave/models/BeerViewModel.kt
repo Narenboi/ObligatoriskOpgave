@@ -14,12 +14,10 @@ class BeerViewModel : ViewModel() {
     val deleteBeerErrorMessageLiveData: LiveData<String> = repository.deleteBeerErrorMessageLiveData
     val beerLiveData: LiveData<List<Beer>> = repository.beerLiveData
 
-    // Method to reload beers
     fun reload() {
         repository.getBeers()
     }
 
-    // Method to add a new beer
     fun addBeer(beer: Beer) {
         repository.addBeer(beer)
     }
@@ -32,57 +30,51 @@ class BeerViewModel : ViewModel() {
         repository.updateBeer(beerId, beer)
     }
 
-    // Initialization
     init {
         reload()
     }
 
-    // Access operator for getting beer by index
     operator fun get(index: Int): Beer? {
         return beersLiveData.value?.get(index)
     }
 
 
-    // Function to sort beers alphabetically by name
     fun sortAlphabetical() {
         val currentBeers = beersLiveData.value ?: return
         val sortedBeers = currentBeers.sortedBy { it.name }
         repository.updateBeersLiveData(sortedBeers)
     }
 
-    // Function to sort beers by volume
     fun sortByVolume() {
         val currentBeers = beersLiveData.value ?: return
         val sortedBeers = currentBeers.sortedBy { it.volume }
         repository.updateBeersLiveData(sortedBeers)
     }
 
-    // Function to sort beers by how many
     fun sortByHowMany() {
         val currentBeers = beersLiveData.value ?: return
         val sortedBeers = currentBeers.sortedBy { it.howMany }
         repository.updateBeersLiveData(sortedBeers)
     }
 
-    // Function to filter beers alphabetically by name
+
     fun filterAlphabetical() {
         val currentBeers = beersLiveData.value ?: return
-        val sortedBeers = currentBeers.sortedBy { it.name }
-        repository.updateBeersLiveData(sortedBeers)
+        val filteredBeers = currentBeers.filter { it.name != null }.sortedBy { it.name }
+        repository.updateBeersLiveData(filteredBeers)
     }
 
-    // Function to filter beers by volume
     fun filterByVolume() {
         val currentBeers = beersLiveData.value ?: return
-        val sortedBeers = currentBeers.sortedBy { it.volume }
-        repository.updateBeersLiveData(sortedBeers)
+        val filteredBeers = currentBeers.filter { it.volume != null }.sortedBy { it.volume }
+        repository.updateBeersLiveData(filteredBeers)
     }
 
-    // Function to filter beers by how many
     fun filterByHowMany() {
         val currentBeers = beersLiveData.value ?: return
-        val sortedBeers = currentBeers.sortedBy { it.howMany }
-        repository.updateBeersLiveData(sortedBeers)
+        val filteredBeers = currentBeers.filter { it.howMany != null }.sortedBy { it.howMany }
+        repository.updateBeersLiveData(filteredBeers)
     }
+
 
 }

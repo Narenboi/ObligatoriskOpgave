@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/BeerFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BeerFragment"
-    android:id="@+id/BeerFragment">
+    tools:context=".BeerFragment">
 
     <TextView
         android:id="@+id/textview_message"
@@ -14,49 +14,47 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
+    <Button
+        android:id="@+id/button_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sort"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-
-        <Button
-            android:id="@+id/button_sort"
+        <Spinner
+            android:id="@+id/spinner_filter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sort" />
+            android:layout_weight="2" />
+
+        <EditText
+            android:id="@+id/edittext_filter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="Enter filter text"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/button_apply_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply Filter" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchview_filter_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="2"
-            app:queryHint="Search by title" />
-
-        <Button
-            android:id="@+id/button_filter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Filter" />
-
-        <Button
-            android:id="@+id/button_create_new_beer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Create new beer" />
-
-    </LinearLayout>
-
-
+    <Button
+        android:id="@+id/button_create_new_beer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new beer"
+        android:layout_gravity="center_horizontal" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"

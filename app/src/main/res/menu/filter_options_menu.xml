@@ -1,13 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:id="@+id/group_filter" android:checkableBehavior="single">
-        <item
-            android:id="@+id/menu_item_filter_alphabetical"
-            android:title="Filter Alphabetically" />
-        <item
-            android:id="@+id/menu_item_filter_volume"
-            android:title="Filter by Volume" />
-        <item
-            android:id="@+id/menu_item_filter_how_many"
-            android:title="Filter by How Many" />
-    </group>
+    <item
+        android:id="@+id/menu_item_filter"
+        android:title="Filter">
+        <menu>
+            <item
+                android:id="@+id/menu_item_filter_brewery"
+                android:title="Filter by Brewery" />
+            <item
+                android:id="@+id/menu_item_filter_name"
+                android:title="Filter by Name" />
+            <item
+                android:id="@+id/menu_item_filter_how_many"
+                android:title="Filter by How Many" />
+        </menu>
+    </item>
 </menu>

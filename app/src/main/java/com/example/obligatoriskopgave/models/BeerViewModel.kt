@@ -57,11 +57,6 @@ class BeerViewModel : ViewModel() {
         repository.updateBeersLiveData(sortedBeers)
     }
 
-
-    // Inside BeerViewModel class
-
-    // Inside BeerViewModel class
-
     fun filterByBrewery(breweryName: String) {
         val currentBeers = beersLiveData.value ?: return
         val filteredBeers = currentBeers.filter { it.brewery?.contains(breweryName, ignoreCase = true) ?: false }

@@ -14,20 +14,18 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
-    <!-- Sort Button -->
+
     <Button
         android:id="@+id/button_sort"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sort" />
 
-    <!-- Filter Options -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Input Field for Filter -->
         <EditText
             android:id="@+id/edittext_filter"
             android:layout_width="0dp"
@@ -36,7 +34,6 @@
             android:hint="Enter filter text"
             android:inputType="text" />
 
-        <!-- Filter Button -->
         <Button
             android:id="@+id/button_filter"
             android:layout_width="0dp"
@@ -46,14 +43,12 @@
 
     </LinearLayout>
 
-    <!-- Create New Beer Button -->
     <Button
         android:id="@+id/button_create_new_beer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create new beer" />
 
-    <!-- RecyclerView for Beers -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"

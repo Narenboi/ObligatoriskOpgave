@@ -58,7 +58,7 @@ class AddBeerFragment : Fragment() {
                 val name = editTextName.text.toString()
                 val style = editTextStyle.text.toString()
                 val abv = editTextABV.text.toString().toDoubleOrNull() ?: 0.0 // Convert to Double or default to 0.0
-                val volume = editTextVolume.text.toString().toDoubleOrNull() ?: 0.0 // Convert to Double or default to 0.0
+                val volume = editTextVolume.text.toString().toDoubleOrNull() ?: 0.0
                 //val pictureUrl = editTextPictureUrl.text.toString()
                 val howMany = editTextHowMany.text.toString().toInt()
 
@@ -68,8 +68,7 @@ class AddBeerFragment : Fragment() {
                 findNavController().navigate(R.id.action_AddBeerFragment_to_BeerFragment)
 
             } catch (e: NumberFormatException) {
-                // Handle conversion errors (e.g., invalid input for numeric fields)
-                // Show a toast or a Snackbar to inform the user about the error
+                // Handle the error
             }
         }
 

@@ -154,7 +154,6 @@ class BeerRepository {
         }
     }
 
-    // Function to update beers live data
     fun updateBeersLiveData(beers: List<Beer>) {
         beersLiveData.postValue(beers)
     }

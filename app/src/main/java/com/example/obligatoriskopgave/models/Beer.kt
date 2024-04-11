@@ -23,16 +23,4 @@ data class Beer(
         return "$nameText: $styleText: $abv%: $volume ml: $howMany"
     }
 
-   /* override fun hashCode(): Int {
-        var result = id
-        result = 31 * result + (user?.hashCode() ?: 0)
-        result = 31 * result + (brewery?.hashCode() ?: 0)
-        result = 31 * result + (name?.hashCode() ?: 0)
-        result = 31 * result + (style?.hashCode() ?: 0)
-        result = 31 * result + abv.hashCode()
-        result = 31 * result + volume.hashCode()
-        result = 31 * result + (pictureUrl?.hashCode() ?: 0)
-        result = 31 * result + howMany
-        return result
-    }*/
 }

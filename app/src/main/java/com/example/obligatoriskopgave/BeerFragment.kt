@@ -129,15 +129,18 @@ class BeerFragment : Fragment() {
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.menu_item_filter_alphabetical -> {
-                    beerViewModel.filterAlphabetical()
+                    val filterText = binding.edittextFilter.text.toString()
+                    beerViewModel.filterByBrewery(filterText)
                     true
                 }
                 R.id.menu_item_filter_volume -> {
-                    beerViewModel.filterByVolume()
+                    val filterText = binding.edittextFilter.text.toString()
+                    beerViewModel.filterByVolume(filterText)
                     true
                 }
                 R.id.menu_item_filter_how_many -> {
-                    beerViewModel.filterByHowMany()
+                    val filterText = binding.edittextFilter.text.toString()
+                    beerViewModel.filterByHowMany(filterText)
                     true
                 }
                 else -> false

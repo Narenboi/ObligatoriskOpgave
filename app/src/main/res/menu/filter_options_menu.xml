@@ -2,7 +2,7 @@
     <group android:id="@+id/group_filter" android:checkableBehavior="single">
         <item
             android:id="@+id/menu_item_filter_alphabetical"
-            android:title="Filter Alphabetically" />
+            android:title="Filter Brewery" />
         <item
             android:id="@+id/menu_item_filter_volume"
             android:title="Filter by Volume" />

@@ -14,32 +14,29 @@
         android:layout_height="wrap_content"
         android:visibility="gone" />
 
+    <!-- Sort Button -->
+    <Button
+        android:id="@+id/button_sort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sort" />
+
+    <!-- Filter Options -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
-        <Button
-            android:id="@+id/button_sort"
+        <!-- Input Field for Filter -->
+        <EditText
+            android:id="@+id/edittext_filter"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sort" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchview_filter_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:layout_weight="2"
-            app:queryHint="Search by title" />
+            android:hint="Enter filter text"
+            android:inputType="text" />
 
+        <!-- Filter Button -->
         <Button
             android:id="@+id/button_filter"
             android:layout_width="0dp"
@@ -47,17 +44,16 @@
             android:layout_weight="1"
             android:text="Filter" />
 
-        <Button
-            android:id="@+id/button_create_new_beer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Create new beer" />
-
     </LinearLayout>
 
+    <!-- Create New Beer Button -->
+    <Button
+        android:id="@+id/button_create_new_beer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create new beer" />
 
-
+    <!-- RecyclerView for Beers -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"

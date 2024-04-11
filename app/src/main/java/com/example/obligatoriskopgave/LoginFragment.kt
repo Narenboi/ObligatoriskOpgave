@@ -1,3 +1,5 @@
+// LoginFragment.kt
+
 package com.example.obligatoriskopgave
 
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.obligatoriskopgave.databinding.LoginFragmentBinding
+import com.example.obligatoriskopgave.models.BeerViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 /**
@@ -55,6 +58,9 @@ class LoginFragment : Fragment() {
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         println("Login successfull!")
+                        // Access the instance of BeerViewModel
+                        val beerViewModel = BeerViewModel()
+                        beerViewModel.reload()
                         findNavController().navigate(R.id.action_login_fragment_to_BeerFragment)
                     } else {
                         binding.loginFailed.text = "Login failed: ${task.exception?.message} "

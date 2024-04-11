@@ -58,23 +58,28 @@ class BeerViewModel : ViewModel() {
     }
 
 
-    fun filterAlphabetical() {
+    // Inside BeerViewModel class
+
+    // Inside BeerViewModel class
+
+    fun filterByBrewery(breweryName: String) {
         val currentBeers = beersLiveData.value ?: return
-        val filteredBeers = currentBeers.filter { it.name != null }.sortedBy { it.name }
+        val filteredBeers = currentBeers.filter { it.brewery?.contains(breweryName, ignoreCase = true) ?: false }
         repository.updateBeersLiveData(filteredBeers)
     }
 
-    fun filterByVolume() {
+    fun filterByVolume(volume: String) {
         val currentBeers = beersLiveData.value ?: return
-        val filteredBeers = currentBeers.filter { it.volume != null }.sortedBy { it.volume }
+        val filteredBeers = currentBeers.filter { it.volume.toString() == volume }
         repository.updateBeersLiveData(filteredBeers)
     }
 
-    fun filterByHowMany() {
+    fun filterByHowMany(howMany: String) {
         val currentBeers = beersLiveData.value ?: return
-        val filteredBeers = currentBeers.filter { it.howMany != null }.sortedBy { it.howMany }
+        val filteredBeers = currentBeers.filter { it.howMany.toString() == howMany }
         repository.updateBeersLiveData(filteredBeers)
     }
+
 
 
 }
